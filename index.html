@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mar del Litio | Tu auto no arranca — Baterías a domicilio Mar del Plata</title>
+<meta name="description" content="Baterías a domicilio en Mar del Plata. Instalación en 45 minutos. 10% OFF pagando en efectivo. Llamá al 223 672-4444.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F55C00;--orange-dark:#D44E00;--orange-light:#FF7A2B;
+  --black:#16172A;--dark:#1E2038;--dark-alt:#26283F;--light-gray:#F5F5F3;
+  --white:#FFFFFF;--green-wa:#25D366;--text-muted:#777;
+  --radius:12px;--radius-sm:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* PROMO BANNER */
+.promo-banner{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--orange);color:white;
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;padding:9px 48px 9px 16px;
+  font-size:14px;font-weight:700;text-align:center;flex-wrap:wrap;
+  min-height:40px;
+}
+.promo-timer{
+  background:rgba(0,0,0,.25);border-radius:6px;
+  padding:3px 10px;font-family:'Bebas Neue',sans-serif;
+  font-size:20px;letter-spacing:2px;color:white;min-width:88px;text-align:center;
+}
+.promo-close{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:white;font-size:20px;cursor:pointer;padding:4px 8px;opacity:.75;
+}
+.promo-close:hover{opacity:1}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;top:40px;left:0;right:0;z-index:900;
+  background:var(--white);border-bottom:2px solid #eee;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:54px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);transition:top .3s;
+}
+.navbar.no-banner{top:0}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{
+  width:32px;height:32px;background:var(--orange);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:16px;color:white;
+}
+.nav-logo-text{font-weight:700;font-size:14px;line-height:1.2}
+.nav-logo-text span{font-size:10px;font-weight:400;color:var(--text-muted);display:block}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-phone{font-size:13px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:5px}
+.btn-wa-nav{
+  display:flex;align-items:center;gap:6px;
+  padding:9px 16px;border-radius:30px;
+  background:var(--green-wa);color:white;font-size:13px;font-weight:700;
+}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* HERO */
+.hero{
+  min-height:100svh;padding-top:94px;
+  position:relative;
+  display:flex;flex-direction:column;justify-content:center;
+  background:url('ChatGPT Image 8 may 2026, 01_25_30 p.m..png') center/cover fixed no-repeat;
+}
+.hero-bg{display:none}
+.hero-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(22,23,42,.92) 35%,rgba(22,23,42,.55) 60%,rgba(22,23,42,.15) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr auto;gap:28px;
+  padding:56px 64px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(245,92,0,.15);border:1px solid rgba(245,92,0,.4);
+  color:var(--orange-light);font-size:11px;font-weight:700;letter-spacing:1.5px;
+  padding:5px 12px;border-radius:30px;width:fit-content;margin-bottom:22px;
+  text-transform:uppercase;
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange-light);animation:pulse-dot 2s infinite;display:inline-block}
+.hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(62px,8vw,106px);line-height:.92;
+  color:var(--white);letter-spacing:1px;margin-bottom:18px;
+}
+.hero-h1 span{color:var(--orange);display:block}
+.hero-sub{color:#BBBBBB;font-size:17px;line-height:1.6;margin-bottom:28px;max-width:400px}
+.hero-sub strong{color:white;font-weight:700}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-wa);color:white;
+  padding:16px 28px;border-radius:var(--radius);
+  font-size:16px;font-weight:800;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  font-family:'Barlow',sans-serif;transition:transform .15s;
+}
+.btn-primary:active{transform:scale(.97)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);
+  color:white;padding:16px 22px;border-radius:var(--radius);
+  font-size:16px;font-weight:700;font-family:'Barlow',sans-serif;
+}
+.hero-right-panel{
+  background:rgba(22,23,42,.55);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1.5px solid rgba(245,92,0,.35);
+  border-radius:16px;padding:18px 20px;position:relative;overflow:hidden;
+  width:260px;
+}
+.hero-right-panel::before{
+  content:'';position:absolute;top:-50px;right:-50px;
+  width:180px;height:180px;border-radius:50%;background:rgba(245,92,0,.08);
+}
+.hero-timer-card{
+  background:white;border-radius:12px;padding:12px 16px;
+  margin-bottom:12px;position:relative;z-index:2;
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
+}
+.hero-timer-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--orange);line-height:.9}
+.hero-timer-label{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--black);margin-top:2px}
+.hero-timer-sub{font-size:11px;color:var(--text-muted);margin-top:3px}
+.hero-steps{position:relative;z-index:2}
+.hero-steps-title{color:rgba(255,255,255,.7);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.hero-step{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px}
+.step-num{width:20px;height:20px;min-width:20px;border-radius:50%;background:rgba(255,255,255,.25);color:white;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step-text strong{color:white;font-size:12px;font-weight:700;display:block}
+.step-text span{color:rgba(255,255,255,.65);font-size:11px}
+.hero-trust{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);position:relative;z-index:2}
+.trust-item{display:flex;flex-direction:column}
+.trust-num{font-family:'Bebas Neue',sans-serif;font-size:26px;color:white;line-height:1}
+.trust-label{font-size:10px;color:rgba(255,255,255,.65);font-weight:500}
+
+/* SECCIÓN GENÉRICA */
+.section-tag{display:inline-block;background:var(--orange);color:white;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:12px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,56px);line-height:1;color:var(--black);margin-bottom:10px}
+.section-sub{font-size:15px;color:var(--text-muted);max-width:500px;line-height:1.6;margin-bottom:44px}
+
+/* CARRUSEL MARCAS HERO */
+.section-brand-slider{padding:0;background:var(--black);overflow:hidden;position:relative}
+.brand-slider-track{display:flex;gap:0;animation:slideBrands 18s linear infinite;width:max-content}
+.brand-slider-track:hover{animation-play-state:paused}
+@keyframes slideBrands{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.brand-slide{width:340px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;flex-shrink:0;cursor:default;transition:filter .3s}
+.brand-slide:hover{filter:brightness(1.15)}
+.brand-slide::after{content:'';position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(0,0,0,.82),transparent);z-index:1}
+.brand-slide-content{display:none}
+.brand-moura{background:#fff url('images.jpeg') center/80% no-repeat}
+.brand-mateo{background:#fff url('D_NQ_NP_847265-MLA89749447392_082025-O.webp') center/contain no-repeat}
+.brand-herbo{background:#fff url('D_NQ_NP_2X_810372-MLA110118613168_042026-F.webp') center/contain no-repeat}
+
+/* BENEFICIOS */
+.section-benefits{padding:68px 64px;background:var(--white)}
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.benefit-card{padding:26px 22px;border-radius:var(--radius);border:2px solid #ebebeb;transition:all .3s;position:relative;overflow:hidden}
+.benefit-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.benefit-card:hover{border-color:var(--orange);transform:translateY(-3px)}
+.benefit-card:hover::after{transform:scaleX(1)}
+.benefit-icon{font-size:26px;margin-bottom:14px}
+.benefit-card h3{font-size:15px;font-weight:800;color:var(--black);margin-bottom:7px}
+.benefit-card p{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* MIEDOS */
+.section-miedos{padding:68px 64px;background:var(--black)}
+.section-miedos .section-title{color:white}
+.section-miedos .section-sub{color:rgba(255,255,255,.5)}
+.miedos-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:36px}
+.miedo-item{padding:28px 32px;background:var(--dark);transition:background .3s;border:1px solid rgba(255,255,255,.05)}
+.miedo-item:hover{background:var(--dark-alt)}
+.miedo-q{font-size:16px;font-weight:800;color:var(--orange);margin-bottom:10px;display:flex;align-items:flex-start;gap:9px}
+.miedo-q-icon{min-width:22px;height:22px;border-radius:50%;background:rgba(245,92,0,.2);color:var(--orange);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.miedo-a{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7;padding-left:31px}
+
+/* SERVICIOS */
+.section-servicios{padding:68px 64px;background:var(--light-gray)}
+.servicios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}
+.servicio-card{background:white;border-radius:var(--radius);padding:28px 24px;border:2px solid transparent;transition:all .3s}
+.servicio-card:hover{border-color:var(--orange);box-shadow:0 8px 24px rgba(245,92,0,.1)}
+.servicio-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 11px;border-radius:30px;background:rgba(245,92,0,.1);color:var(--orange);margin-bottom:14px}
+.servicio-card h3{font-size:19px;font-weight:800;color:var(--black);margin-bottom:9px}
+.servicio-card p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:18px}
+.servicio-detail{font-size:13px;font-weight:700;color:var(--orange)}
+
+/* RESEÑAS */
+.section-resenas{padding:68px 64px;background:var(--white)}
+.resenas-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:14px}
+.resenas-score{display:flex;align-items:center;gap:14px}
+.score-big{font-family:'Bebas Neue',sans-serif;font-size:68px;color:var(--orange);line-height:1}
+.score-stars{font-size:20px;margin-bottom:2px}
+.score-label{font-size:13px;color:var(--text-muted)}
+.resenas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.resena-card{border:2px solid #ebebeb;border-radius:var(--radius);padding:22px;transition:all .3s}
+.resena-card:hover{border-color:var(--orange)}
+.resena-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.resena-avatar{width:36px;height:36px;border-radius:50%;min-width:36px;background:var(--orange);color:white;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.resena-name{font-size:13px;font-weight:700}
+.resena-date{font-size:11px;color:var(--text-muted)}
+.resena-stars{font-size:12px;margin-bottom:8px}
+.resena-text{font-size:13px;color:#444;line-height:1.7}
+.resenas-google-btn{display:inline-flex;align-items:center;gap:8px;background:white;border:2px solid #e0e0e0;border-radius:10px;padding:11px 18px;font-size:13px;font-weight:700;color:var(--black);margin-top:24px;transition:border-color .2s}
+.resenas-google-btn:hover{border-color:var(--orange)}
+
+/* CARRUSEL RESEÑAS */
+.resenas-carousel-outer{overflow:hidden;position:relative;margin-top:0}
+.resenas-carousel-outer::before,.resenas-carousel-outer::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.resenas-carousel-outer::before{left:0;background:linear-gradient(to right,var(--white),transparent)}
+.resenas-carousel-outer::after{right:0;background:linear-gradient(to left,var(--white),transparent)}
+.resenas-track{display:flex;gap:16px;animation:slideReviews 38s linear infinite;width:max-content}
+.resenas-track:hover{animation-play-state:paused}
+@keyframes slideReviews{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.resenas-track .resena-card{width:300px;flex-shrink:0}
+
+/* HERO OFFER COUNTDOWN */
+.hero-offer-box{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:rgba(245,92,0,.18);border:1.5px solid rgba(245,92,0,.55);
+  border-radius:var(--radius-sm);padding:10px 16px;margin-bottom:22px;width:fit-content}
+.offer-label-text{color:rgba(255,255,255,.9);font-size:13px;font-weight:700}
+.hero-countdown{display:flex;align-items:center;gap:3px}
+.hc-unit{display:flex;flex-direction:column;align-items:center;
+  background:var(--orange);border-radius:5px;padding:5px 10px;min-width:40px}
+.hc-unit span{font-family:'Bebas Neue',sans-serif;font-size:24px;color:white;line-height:1}
+.hc-unit small{font-size:9px;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+.hc-sep{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--orange-light);padding:0 1px}
+
+/* MARCAS */
+.section-marcas{padding:52px 64px;background:var(--black)}
+.section-marcas .section-title{color:white}
+.marcas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.marca-card{border:2px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px 18px;text-align:center;transition:all .3s}
+.marca-card:hover{border-color:var(--orange);background:rgba(245,92,0,.06)}
+.marca-logo{font-family:'Bebas Neue',sans-serif;font-size:30px;color:white;margin-bottom:5px}
+.marca-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+
+/* STATS */
+.section-stats{padding:48px 64px;background:var(--orange)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{text-align:center;padding:14px;border-right:1px solid rgba(255,255,255,.25)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:white;line-height:1}
+.stat-label{font-size:12px;color:rgba(255,255,255,.75);font-weight:500;margin-top:2px}
+
+/* MAYORISTA (oculto) */
+.section-mayorista{padding:68px 64px;background:var(--light-gray);display:none}
+.mayorista-layout{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.mayorista-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.mfeature{background:white;border-radius:var(--radius-sm);padding:18px;border:2px solid #ebebeb}
+.mfeature-icon{font-size:20px;margin-bottom:7px}
+.mfeature h4{font-size:14px;font-weight:800;color:var(--black);margin-bottom:4px}
+.mfeature p{font-size:13px;color:var(--text-muted);line-height:1.5}
+.mayorista-right{background:white;border-radius:18px;padding:32px;border:2px solid #ebebeb}
+.form-title{font-size:18px;font-weight:800;color:var(--black);margin-bottom:4px}
+.form-sub{font-size:13px;color:var(--text-muted);margin-bottom:22px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 12px;border:2px solid #e0e0e0;border-radius:var(--radius-sm);font-family:'Barlow',sans-serif;font-size:14px;outline:none;background:#fafafa;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange);background:white}
+.form-group textarea{resize:vertical;min-height:76px}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-form{width:100%;padding:14px;background:var(--orange);color:white;font-size:15px;font-weight:800;border:none;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;font-family:'Barlow',sans-serif}
+.form-note{font-size:11px;color:var(--text-muted);text-align:center;margin-top:7px}
+.form-ok{display:none;text-align:center;padding:36px 16px}
+.form-ok-icon{font-size:44px;margin-bottom:12px}
+.form-ok h3{font-size:19px;font-weight:800;margin-bottom:7px}
+.form-ok p{font-size:14px;color:var(--text-muted)}
+
+/* URGENCIA */
+.section-urgencia{padding:68px 64px;background:var(--black);text-align:center}
+.urgencia-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,7vw,78px);color:white;line-height:.95;margin-bottom:12px}
+.urgencia-title span{color:var(--orange)}
+.urgencia-sub{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:32px}
+.urgencia-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-urgencia-wa{display:inline-flex;align-items:center;gap:10px;background:var(--green-wa);color:white;padding:17px 34px;border-radius:var(--radius);font-size:16px;font-weight:800;font-family:'Barlow',sans-serif;box-shadow:0 4px 20px rgba(37,211,102,.35)}
+.btn-urgencia-tel{display:inline-flex;align-items:center;gap:10px;background:transparent;border:3px solid rgba(255,255,255,.35);color:white;padding:17px 30px;border-radius:var(--radius);font-size:16px;font-weight:800;font-family:'Barlow',sans-serif}
+
+/* FOOTER */
+.footer{background:#0A0A0A;padding:32px 64px}
+.footer-main{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:white}
+.footer-logo span{color:var(--orange)}
+.footer-contact{font-size:12px;color:rgba(255,255,255,.4);line-height:1.8;text-align:right}
+.footer-contact a{color:rgba(255,255,255,.4)}
+.footer-contact a:hover{color:var(--orange)}
+.footer-mayorista{text-align:center;margin-bottom:16px}
+.footer-mayorista-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:rgba(255,255,255,.75);border:2px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:12px;cursor:pointer;background:rgba(255,255,255,.06);font-family:'Barlow',sans-serif;transition:all .2s}
+.footer-mayorista-btn:hover{color:white;border-color:var(--orange);background:rgba(245,92,0,.12)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-nav{display:flex;gap:18px;flex-wrap:wrap}
+.footer-nav a{font-size:12px;color:rgba(255,255,255,.35);transition:color .2s}
+.footer-nav a:hover{color:var(--orange)}
+.footer-social{display:flex;align-items:center;gap:14px}
+.footer-social a{display:flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,.35);font-weight:600;transition:color .2s}
+.footer-social a:hover{color:var(--orange)}
+
+/* CHAT FLOTANTE */
+.wa-float{position:fixed;bottom:22px;right:18px;z-index:999}
+.wa-bubble-btn{width:56px;height:56px;border-radius:50%;background:var(--green-wa);color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);cursor:pointer;border:none;transition:transform .2s;position:relative}
+.wa-bubble-btn:hover{transform:scale(1.1)}
+.wa-notif{position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:2px solid white;font-size:9px;font-weight:800;color:white;display:flex;align-items:center;justify-content:center}
+.wa-popup{position:absolute;bottom:68px;right:0;width:295px;background:white;border-radius:18px;box-shadow:0 8px 40px rgba(0,0,0,.2);overflow:hidden;transform-origin:bottom right;transform:scale(0);opacity:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .2s;pointer-events:none}
+.wa-popup.open{transform:scale(1);opacity:1;pointer-events:all}
+.wa-popup-header{background:#075E54;padding:13px 16px;display:flex;align-items:center;gap:10px}
+.wa-popup-avatar{width:38px;height:38px;border-radius:50%;background:var(--orange);color:white;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;min-width:38px}
+.wa-popup-info h4{color:white;font-size:13px;font-weight:700}
+.wa-popup-info span{color:rgba(255,255,255,.7);font-size:11px;display:flex;align-items:center;gap:4px}
+.wa-popup-info span::before{content:'';width:6px;height:6px;border-radius:50%;background:#4AE54A;display:block}
+.wa-popup-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;padding:2px 6px}
+.wa-popup-body{padding:16px;background:#ECE5DD}
+.wa-msg{background:white;border-radius:12px 12px 12px 0;padding:10px 12px;font-size:13px;color:#333;line-height:1.5;max-width:88%;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.wa-msg-time{font-size:10px;color:var(--text-muted);text-align:right;margin-top:3px}
+.wa-popup-footer{padding:11px 13px}
+.btn-wa-popup{width:100%;padding:11px;background:var(--green-wa);color:white;font-size:13px;font-weight:800;border:none;border-radius:10px;cursor:pointer;font-family:'Barlow',sans-serif;display:flex;align-items:center;justify-content:center;gap:7px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════
+   RESPONSIVE TABLET 1024px
+═══════════════════════ */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;padding:56px 32px 48px}
+  .hero-right-panel{max-width:400px}
+  .benefits-grid{grid-template-columns:repeat(2,1fr)}
+  .miedos-grid{grid-template-columns:1fr}
+  .marcas-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .resenas-grid{grid-template-columns:repeat(2,1fr)}
+  .mayorista-layout{grid-template-columns:1fr}
+  .section-benefits,.section-miedos,.section-servicios,.section-resenas,
+  .section-marcas,.section-stats,.section-mayorista,.section-urgencia,
+  .footer{padding-left:32px;padding-right:32px}
+}
+
+/* ═══════════════════════
+   RESPONSIVE MOBILE 640px
+═══════════════════════ */
+@media(max-width:640px){
+  /* Banner */
+  .promo-banner{font-size:12px;padding:8px 44px 8px 12px;justify-content:flex-start;gap:6px;min-height:40px}
+  .promo-timer{font-size:17px;padding:2px 8px;min-width:76px}
+
+  /* Navbar */
+  .navbar{padding:0 14px;height:50px;top:40px}
+  .navbar.no-banner{top:0}
+  .nav-phone{display:none}
+  .nav-logo-text span{display:none}
+  .btn-wa-nav{padding:8px 12px;font-size:12px}
+
+  /* Hero */
+  .hero{padding-top:90px;min-height:100svh}
+  .hero-content{grid-template-columns:1fr;padding:28px 18px 36px;gap:24px}
+  .hero-h1{font-size:clamp(54px,14vw,76px)}
+  .hero-sub{font-size:15px;margin-bottom:22px}
+  .hero-btns{flex-direction:column;gap:10px}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;font-size:16px;padding:16px;border-radius:14px}
+  .hero-right-panel{padding:22px 18px;border-radius:16px}
+  .hero-timer-num{font-size:62px}
+  .hero-trust{gap:12px}
+  .trust-num{font-size:22px}
+
+  /* Secciones */
+  .section-benefits,.section-miedos,.section-servicios,
+  .section-resenas,.section-marcas,.section-stats,
+  .section-mayorista,.section-urgencia{padding:48px 18px}
+  .footer{padding:28px 18px}
+  .section-title{font-size:clamp(30px,9vw,42px)}
+  .section-sub{font-size:14px;margin-bottom:28px}
+
+  /* Grids → 1 col */
+  .benefits-grid,.miedos-grid,.resenas-grid,
+  .servicios-grid,.mayorista-features{grid-template-columns:1fr}
+
+  /* Stats → 2 col */
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:38px}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.15);padding:16px 6px}
+  .stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.15)}
+  .stat-item:last-child,.stat-item:nth-last-child(2):nth-child(odd){border-bottom:none}
+
+  /* Marcas → 2 col */
+  .marcas-grid{grid-template-columns:1fr 1fr}
+  .marca-logo{font-size:26px}
+
+  /* Beneficios */
+  .benefit-card{padding:20px 16px}
+
+  /* Miedos */
+  .miedo-item{padding:22px 18px}
+  .miedo-q{font-size:14px}
+  .miedo-a{font-size:13px;padding-left:0;margin-top:8px}
+
+  /* Reseñas */
+  .resenas-header{flex-direction:column;align-items:flex-start;gap:10px}
+  .score-big{font-size:52px}
+  .resena-card{padding:18px 14px}
+
+  /* Servicios */
+  .servicio-card{padding:22px 18px}
+
+  /* Urgencia */
+  .urgencia-btns{flex-direction:column;gap:10px}
+  .btn-urgencia-wa,.btn-urgencia-tel{width:100%;justify-content:center;font-size:16px;padding:16px;border-radius:14px}
+
+  /* Footer */
+  .footer-main{flex-direction:column;align-items:flex-start;gap:8px}
+  .footer-contact{text-align:left}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+  .footer-nav{flex-wrap:wrap;gap:10px}
+
+  /* Form */
+  .form-2col{grid-template-columns:1fr}
+  .mayorista-right{padding:22px 16px}
+
+  /* Countdown hero */
+  .hero-offer-box{gap:8px;padding:8px 12px;flex-direction:column;align-items:flex-start}
+  .offer-label-text{font-size:12px}
+  .hc-unit{min-width:34px;padding:4px 8px}
+  .hc-unit span{font-size:20px}
+
+  /* Chat */
+  .wa-popup{width:275px;right:-2px}
+}
+</style>
+</head>
+<body>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner" id="promoBanner">
+  <span>🔥 <strong>10% OFF</strong> pagando en efectivo</span>
+  <span style="opacity:.6">·</span>
+  <span>Oferta válida por:</span>
+  <span class="promo-timer" id="promoTimer">23:59:59</span>
+  <button class="promo-close" onclick="cerrarBanner()" title="Cerrar">✕</button>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">ML</div>
+    <div class="nav-logo-text">Mar del Litio <span>Mar del Plata · Baterías</span></div>
+  </a>
+  <div class="nav-actions">
+    <a href="tel:2236724444" class="nav-phone">📞 223 672-4444</a>
+    <a href="https://wa.me/542236724444?text=Hola%20Gian%20Franco,%20mi%20auto%20no%20arranca.%20Necesito%20una%20batería%20a%20domicilio." class="btn-wa-nav" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="dot"></span> Servicio activo en Mar del Plata</div>
+      <h1 class="hero-h1">BATERÍAS A DOMICILIO<span>MAR DEL PLATA</span></h1>
+      <p class="hero-sub">Te llevamos la batería <strong>donde estés</strong> y la instalamos en el momento. Revisando la carga de tu vehículo para tu tranquilidad.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/542236724444?text=Hola%20Gian%20Franco,%20mi%20auto%20no%20arranca.%20Necesito%20una%20batería%20a%20domicilio%20ya." class="btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir batería ahora
+        </a>
+        <a href="tel:2236724444" class="btn-secondary">📞 223 672-4444</a>
+      </div>
+    </div>
+    <div class="hero-right-panel">
+      <div class="hero-timer-card">
+        <div class="hero-timer-num">45<span style="font-size:38px;">′</span></div>
+        <div class="hero-timer-label">Tu batería instalada</div>
+        <div class="hero-timer-sub">Llegamos a cualquier punto de Mar del Plata</div>
+      </div>
+      <div class="hero-steps">
+        <div class="hero-steps-title">¿Cómo funciona?</div>
+        <div class="hero-step">
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Escribinos o llamanos</strong><span>Marca, modelo y tu ubicación</span></div>
+        </div>
+        <div class="hero-step">
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Salimos para allá</strong><span>El técnico va directo a donde estés</span></div>
+        </div>
+        <div class="hero-step">
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Instalación incluida</strong><span>La probamos en el momento, sin costo extra</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARRUSEL MARCAS -->
+<section class="section-brand-slider">
+  <div class="brand-slider-track">
+    <div class="brand-slide brand-moura">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">MOURA</div>
+        <div class="brand-slide-sub">Líder del mercado</div>
+        <div class="brand-slide-tag">Garantía extendida · Stock permanente</div>
+      </div>
+    </div>
+    <div class="brand-slide brand-mateo">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">MATEO</div>
+        <div class="brand-slide-sub">Fabricación nacional</div>
+        <div class="brand-slide-tag">Alta durabilidad · Distribución oficial</div>
+      </div>
+    </div>
+    <div class="brand-slide brand-herbo">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">HERBO</div>
+        <div class="brand-slide-sub">Certificada</div>
+        <div class="brand-slide-tag">Distribución nacional · Calidad garantizada</div>
+      </div>
+    </div>
+    <!-- Duplicado para loop continuo -->
+    <div class="brand-slide brand-moura">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">MOURA</div>
+        <div class="brand-slide-sub">Líder del mercado</div>
+        <div class="brand-slide-tag">Garantía extendida · Stock permanente</div>
+      </div>
+    </div>
+    <div class="brand-slide brand-mateo">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">MATEO</div>
+        <div class="brand-slide-sub">Fabricación nacional</div>
+        <div class="brand-slide-tag">Alta durabilidad · Distribución oficial</div>
+      </div>
+    </div>
+    <div class="brand-slide brand-herbo">
+      <div class="brand-slide-content">
+        <div class="brand-slide-logo">HERBO</div>
+        <div class="brand-slide-sub">Certificada</div>
+        <div class="brand-slide-tag">Distribución nacional · Calidad garantizada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="section-benefits">
+  <div class="section-tag">Por qué elegirnos</div>
+  <h2 class="section-title reveal">LO QUE NOS DIFERENCIA</h2>
+  <p class="section-sub reveal">Un equipo real en Mar del Plata, resolviendo problemas reales.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal"><div class="benefit-icon">⚡</div><h3>Instalación en 45 minutos</h3><p>Llegamos a donde estés y te dejamos el auto andando. Sin esperas ni traslados.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">🛡️</div><h3>Garantía oficial de fábrica</h3><p>Mínimo 12 meses, sin letra chica. La garantía se gestiona en nuestro taller de Ortiz de Zárate 5640.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">📅</div><h3>Atención los 7 días</h3><p>Domingos y feriados incluidos. Siempre disponibles cuando más lo necesitás.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-icon">💵</div><h3>10% OFF en efectivo</h3><p>Pagando en efectivo te hacemos un 10% de descuento. Escribinos ahora y aprovechá.</p></div>
+  </div>
+</section>
+
+<!-- MIEDOS -->
+<section class="section-miedos" id="dudas">
+  <div class="section-tag">Preguntas frecuentes</div>
+  <h2 class="section-title reveal">RESOLVEMOS TUS DUDAS</h2>
+  <p class="section-sub reveal">Las preguntas que más nos hacen antes de llamar.</p>
+  <div class="miedos-grid">
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Se va a perder la memoria del auto?</div>
+      <div class="miedo-a">No. Usamos herramientas que mantienen la memoria activa durante el cambio. No perdés la configuración del estéreo, el reloj ni la computadora.</div>
+    </div>
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Es seguro que vengan a mi domicilio?</div>
+      <div class="miedo-a">El técnico va hasta tu domicilio y coloca una batería nueva con garantía oficial de fábrica. Somos el servicio de baterías a domicilio más utilizado en Mar del Plata, con más de +100 reseñas reales en Google que lo respaldan.</div>
+    </div>
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Cómo sé si mi batería necesita cambio?</div>
+      <div class="miedo-a">Si el auto tarda en arrancar, tiene más de 2 años o tuvo descargas frecuentes, probablemente sea hora. Te hacemos un diagnóstico incluido sin cargo.</div>
+    </div>
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Qué pasa si la batería falla en garantía?</div>
+      <div class="miedo-a">La cambiamos sin costo alguno, siempre y cuando la batería no presente golpes, bornes rotos o signos de mal uso. El servicio de garantía se realiza en nuestro taller (Ortiz de Zárate 5640). No realizamos servicio de garantía a domicilio.</div>
+    </div>
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Puedo pagar con tarjeta o transferencia?</div>
+      <div class="miedo-a">Sí. Efectivo, transferencia y tarjetas. Recordá que pagando en efectivo tenés un 10% de descuento sobre el precio final.</div>
+    </div>
+    <div class="miedo-item reveal">
+      <div class="miedo-q"><span class="miedo-q-icon">?</span>¿Llegan a toda Mar del Plata?</div>
+      <div class="miedo-a">Sí, llegamos a toda Mar del Plata. Algunas zonas no tienen costo de traslado y otras sí aplica una tarifa. Consultanos por tu zona antes de coordinar.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- RESEÑAS -->
+<section class="section-resenas" id="resenas">
+  <div class="resenas-header">
+    <div>
+      <div class="section-tag">Clientes reales</div>
+      <h2 class="section-title reveal">LO QUE DICEN</h2>
+    </div>
+    <div class="resenas-score">
+      <div class="score-big">5.0</div>
+      <div><div class="score-stars">★★★★★</div><div class="score-label">+100 reseñas en Google</div></div>
+    </div>
+  </div>
+  <div class="resenas-carousel-outer">
+    <div class="resenas-track">
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">MA</div><div><div class="resena-name">Martín A.</div><div class="resena-date">Hace 2 semanas</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">El auto no me arrancaba y en menos de una hora ya estaba solucionado. Gian Franco llegó rápido, cambió la batería en el lugar y listo. Excelente servicio y buen precio.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">SC</div><div><div class="resena-name">Sofía C.</div><div class="resena-date">Hace 1 mes</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Súper recomendable. Me quedé sin batería en pleno centro y en 40 minutos estaban. Muy buena atención, explicaron todo y el precio fue justo. Los vuelvo a llamar sin dudarlo.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">RL</div><div><div class="resena-name">Roberto L.</div><div class="resena-date">Hace 3 semanas</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Compro para mi taller hace meses. Precios mayoristas, buena mercadería y siempre con stock. Lo mejor es que responden rápido por WhatsApp. Totalmente confiable.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">VG</div><div><div class="resena-name">Valeria G.</div><div class="resena-date">Hace 2 meses</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Nunca había contratado servicio a domicilio de batería y quedé encantada. Sin moverte del lugar, sin esperar en un taller. Te explican todo y el precio es muy razonable.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">DM</div><div><div class="resena-name">Diego M.</div><div class="resena-date">Hace 1 semana</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Rápidos, honestos y con buen precio. Me dieron la batería correcta para mi camioneta. Muy contento, los recomiendo a todos en el barrio.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">LF</div><div><div class="resena-name">Laura F.</div><div class="resena-date">Hace 1 mes</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Me quedé sin batería en la playa en plena temporada. Los llamé y vinieron enseguida. Con Gian Franco siempre bien atendida desde el primer momento.</p></div>
+      <!-- Duplicado para loop continuo -->
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">MA</div><div><div class="resena-name">Martín A.</div><div class="resena-date">Hace 2 semanas</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">El auto no me arrancaba y en menos de una hora ya estaba solucionado. Gian Franco llegó rápido, cambió la batería en el lugar y listo. Excelente servicio y buen precio.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">SC</div><div><div class="resena-name">Sofía C.</div><div class="resena-date">Hace 1 mes</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Súper recomendable. Me quedé sin batería en pleno centro y en 40 minutos estaban. Muy buena atención, explicaron todo y el precio fue justo. Los vuelvo a llamar sin dudarlo.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">RL</div><div><div class="resena-name">Roberto L.</div><div class="resena-date">Hace 3 semanas</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Compro para mi taller hace meses. Precios mayoristas, buena mercadería y siempre con stock. Lo mejor es que responden rápido por WhatsApp. Totalmente confiable.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">VG</div><div><div class="resena-name">Valeria G.</div><div class="resena-date">Hace 2 meses</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Nunca había contratado servicio a domicilio de batería y quedé encantada. Sin moverte del lugar, sin esperar en un taller. Te explican todo y el precio es muy razonable.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">DM</div><div><div class="resena-name">Diego M.</div><div class="resena-date">Hace 1 semana</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Rápidos, honestos y con buen precio. Me dieron la batería correcta para mi camioneta. Muy contento, los recomiendo a todos en el barrio.</p></div>
+      <div class="resena-card"><div class="resena-top"><div class="resena-avatar">LF</div><div><div class="resena-name">Laura F.</div><div class="resena-date">Hace 1 mes</div></div></div><div class="resena-stars">★★★★★</div><p class="resena-text">Me quedé sin batería en la playa en plena temporada. Los llamé y vinieron enseguida. Con Gian Franco siempre bien atendida desde el primer momento.</p></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <a href="https://maps.app.goo.gl/mardellitio" class="resenas-google-btn" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Ver todas las reseñas reales en Google Maps
+    </a>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section class="section-marcas">
+  <div class="section-tag">Stock permanente</div>
+  <h2 class="section-title reveal" style="color:white">LAS MEJORES MARCAS</h2>
+  <div class="marcas-grid">
+    <div class="marca-card reveal"><div class="marca-logo">MATEO</div><div class="marca-desc">Fabricación nacional · Alta durabilidad</div></div>
+    <div class="marca-card reveal"><div class="marca-logo">MOURA</div><div class="marca-desc">Líder del mercado · Garantía extendida</div></div>
+    <div class="marca-card reveal"><div class="marca-logo">HERBO</div><div class="marca-desc">Certificada · Distribución nacional</div></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal"><div class="stat-num">+100</div><div class="stat-label">Reseñas 5★ en Google</div></div>
+    <div class="stat-item reveal"><div class="stat-num">45′</div><div class="stat-label">Tiempo promedio de llegada</div></div>
+    <div class="stat-item reveal"><div class="stat-num">10%</div><div class="stat-label">OFF pagando en efectivo</div></div>
+    <div class="stat-item reveal"><div class="stat-num">✓</div><div class="stat-label">Garantía oficial de fábrica</div></div>
+  </div>
+</section>
+
+<!-- MAYORISTA (oculto, sólo accesible desde footer) -->
+<section class="section-mayorista" id="mayorista">
+  <div class="mayorista-layout">
+    <div class="mayorista-left">
+      <div class="section-tag">Canal B2B</div>
+      <h2 class="section-title reveal">¿SOS TALLER O REVENDEDOR?</h2>
+      <p class="section-sub reveal" style="margin-bottom:0">Precios mayoristas directos para talleres, lubricentros y revendedores de Mar del Plata y zona.</p>
+      <div class="mayorista-features">
+        <div class="mfeature reveal"><div class="mfeature-icon">💰</div><h4>Precio mayorista real</h4><p>Cotización directa desde el primer pedido.</p></div>
+        <div class="mfeature reveal"><div class="mfeature-icon">🚚</div><h4>Entrega en tu comercio</h4><p>Llevamos el stock a tu taller.</p></div>
+        <div class="mfeature reveal"><div class="mfeature-icon">✅</div><h4>Garantía de fábrica</h4><p>Todos los productos con garantía oficial.</p></div>
+        <div class="mfeature reveal"><div class="mfeature-icon">💬</div><h4>Atención directa</h4><p>Hablás con Gian Franco. Sin call centers.</p></div>
+      </div>
+    </div>
+    <div class="mayorista-right">
+      <div id="mayorista-form-wrap">
+        <div class="form-title">Quiero ser distribuidor</div>
+        <div class="form-sub">Te contactamos en menos de 24hs</div>
+        <form id="mayorista-form" action="https://formspree.io/f/mzdylvpa" method="POST" onsubmit="enviarForm(event)">
+          <input type="hidden" name="_subject" value="Nueva consulta mayorista - Mar del Litio">
+          <div class="form-2col">
+            <div class="form-group"><label>Nombre *</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
+            <div class="form-group"><label>Teléfono *</label><input type="tel" name="telefono" required placeholder="223 ..."></div>
+          </div>
+          <div class="form-group"><label>Email *</label><input type="email" name="email" required placeholder="tu@email.com"></div>
+          <div class="form-group"><label>Nombre del comercio *</label><input type="text" name="comercio" required placeholder="Nombre del negocio"></div>
+          <div class="form-2col">
+            <div class="form-group"><label>Tipo de negocio</label>
+              <select name="tipo_negocio"><option value="">Seleccioná...</option><option>Taller mecánico</option><option>Lubricentro</option><option>Revendedor</option><option>Otra empresa</option></select>
+            </div>
+            <div class="form-group"><label>Ciudad</label><input type="text" name="ciudad" placeholder="Mar del Plata, Tandil..."></div>
+          </div>
+          <div class="form-group"><label>¿Qué marcas te interesan?</label><textarea name="marcas" placeholder="Ej: Mateo, Moura... ¿cuántas unidades por mes?"></textarea></div>
+          <button type="submit" class="btn-form">➤ Enviar consulta</button>
+          <p class="form-note">Sin compromiso. Respondemos en menos de 24hs hábiles.</p>
+        </form>
+      </div>
+      <div class="form-ok" id="form-ok">
+        <div class="form-ok-icon">✅</div>
+        <h3>¡Consulta enviada!</h3>
+        <p>Gian Franco te contacta en menos de 24hs.<br>También podés escribirle al <strong>223 672-4444</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCIA FINAL -->
+<section class="section-urgencia" id="urgencia">
+  <h2 class="urgencia-title">¿TU AUTO NO ARRANCA<br><span>AHORA MISMO?</span></h2>
+  <p class="urgencia-sub">Escribinos y en minutos coordinamos. Llegamos a donde estés.</p>
+  <div class="urgencia-btns">
+    <a href="https://wa.me/542236724444?text=Hola%20Gian%20Franco,%20mi%20auto%20no%20arranca.%20Necesito%20una%20batería%20a%20domicilio." class="btn-urgencia-wa" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp ahora
+    </a>
+    <a href="tel:2236724444" class="btn-urgencia-tel">📞 223 672-4444</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-logo">Mar del <span>Litio</span></div>
+    <div class="footer-contact">
+      <a href="tel:2236724444">223 672-4444</a> · <a href="mailto:bateriasmdp2000@gmail.com">bateriasmdp2000@gmail.com</a><br>
+      Ortiz de Zárate 5640 · Mar del Plata · Buenos Aires
+    </div>
+  </div>
+  <div class="footer-mayorista">
+    <button class="footer-mayorista-btn" onclick="mostrarMayorista()">🏪 ¿Sos taller o revendedor? Consultá precios mayoristas</button>
+  </div>
+  <div class="footer-bottom">
+    <nav class="footer-nav">
+      <a href="#urgencia">Domicilio</a>
+      <a href="#dudas">Preguntas</a>
+      <a href="tel:2236724444">Llamar</a>
+      <a href="https://wa.me/542236724444" target="_blank">WhatsApp</a>
+      <a href="https://maps.app.goo.gl/mardellitio" target="_blank">Google Maps</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mardellitio" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @mardellitio
+      </a>
+      <a href="https://www.tiktok.com/@mardellitio" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+        @mardellitio
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHAT FLOTANTE -->
+<div class="wa-float">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup-header">
+      <div class="wa-popup-avatar">GF</div>
+      <div class="wa-popup-info">
+        <h4>Gian Franco · Mar del Litio</h4>
+        <span>En línea ahora</span>
+      </div>
+      <button class="wa-popup-close" onclick="toggleWaPopup()">✕</button>
+    </div>
+    <div class="wa-popup-body">
+      <div class="wa-msg">¡Hola! 👋 ¿Para qué vehículo necesitás la batería? Te cotizamos al instante 🔋<div class="wa-msg-time">ahora</div></div>
+    </div>
+    <div class="wa-popup-footer">
+      <a href="https://wa.me/542236724444?text=Hola%20Gian%20Franco,%20quiero%20consultar%20por%20una%20batería" target="_blank">
+        <button class="btn-wa-popup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Iniciar conversación
+        </button>
+      </a>
+    </div>
+  </div>
+  <button class="wa-bubble-btn" onclick="toggleWaPopup()">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-notif">1</span>
+  </button>
+</div>
+
+<script>
+// PROMO TIMER
+(function(){
+  const key='ml_promo_4h';
+  let end=Number(localStorage.getItem(key));
+  if(!end||isNaN(end)||end<Date.now()){end=Date.now()+4*60*60*1000;localStorage.setItem(key,end)}
+  function tick(){
+    const diff=Math.max(0,end-Date.now());
+    const h=String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const s=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    const el=document.getElementById('promoTimer');
+    if(el)el.textContent=h+':'+m+':'+s;
+    if(diff>0)setTimeout(tick,1000);
+  }
+  tick();
+})();
+
+function cerrarBanner(){
+  const b=document.getElementById('promoBanner');
+  if(b)b.style.display='none';
+  document.getElementById('navbar').classList.add('no-banner');
+}
+
+// CHAT FLOTANTE
+let popupOpen=false;
+function toggleWaPopup(){
+  popupOpen=!popupOpen;
+  document.getElementById('waPopup').classList.toggle('open',popupOpen);
+  const n=document.querySelector('.wa-notif');
+  if(n)n.style.display='none';
+}
+setTimeout(()=>{
+  if(!popupOpen){popupOpen=true;document.getElementById('waPopup').classList.add('open')}
+},7000);
+
+// MAYORISTA
+function mostrarMayorista(){
+  const s=document.getElementById('mayorista');
+  s.style.display='block';
+  setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+// REVEAL
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*55);obs.unobserve(e.target)}
+  });
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// HERO 2H COUNTDOWN
+(function(){
+  const key2='ml_hero2h_end';
+  const TWO_H=2*60*60*1000;
+  let end2=Number(localStorage.getItem(key2));
+  if(!end2||end2<Date.now()){end2=Date.now()+TWO_H;localStorage.setItem(key2,end2)}
+  function tick2(){
+    const diff=Math.max(0,end2-Date.now());
+    const h=String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const s=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    const eH=document.getElementById('hcH');const eM=document.getElementById('hcM');const eS=document.getElementById('hcS');
+    if(eH)eH.textContent=h;if(eM)eM.textContent=m;if(eS)eS.textContent=s;
+    if(diff>0)setTimeout(tick2,1000);
+  }
+  tick2();
+})();
+
+// FORM
+function enviarForm(e){
+  e.preventDefault();
+  const form=document.getElementById('mayorista-form');
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .finally(()=>{
+      form.style.display='none';
+      document.getElementById('form-ok').style.display='block';
+    });
+}
+</script>
+</body>
+</html>
